@@ -1,9 +1,15 @@
 {
   "realm": "demo-realm",
   "enabled": true,
+
+  "loginWithEmailAllowed": true,
+  "registrationAllowed": false,
+  "duplicateEmailsAllowed": false,
+
   "clients": [
     {
       "clientId": "service-client",
+      "name": "Service Client (client_credentials)",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": false,
@@ -16,6 +22,7 @@
     },
     {
       "clientId": "user-client",
+      "name": "User Client (password grant)",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": true,
@@ -25,11 +32,19 @@
       "webOrigins": ["*"]
     }
   ],
+
   "users": [
     {
       "username": "testuser",
       "enabled": true,
-      "emailVerified": false,
+
+      "email": "testuser@example.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "emailVerified": true,
+
+      "requiredActions": [],
+
       "credentials": [
         {
           "type": "password",
